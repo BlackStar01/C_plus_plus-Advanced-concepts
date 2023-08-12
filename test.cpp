@@ -28,6 +28,7 @@ Node *insert(Node *my_tree, const int new_value) {
     };
 
     if(new_value < my_tree->value) {
+        
         if(my_tree->left_tree == nullptr) {
             print_step();
             my_tree->left_tree = my_node;
@@ -41,7 +42,7 @@ Node *insert(Node *my_tree, const int new_value) {
             my_tree->right_tree = my_node;
             return my_tree;
         }
-        insert(my_tree->left_tree, new_value);
+        insert(my_tree->right_tree, new_value);
     }
     else if(new_value == my_tree->value) {
         print_step();
@@ -85,6 +86,7 @@ int main() {
     my_tree = insert(my_tree, 4);
     my_tree = insert(my_tree, 7);
     my_tree = insert(my_tree, 13);
+    my_tree = insert(my_tree, 22);
 
     //cout << deep_tree(my_tree);
 
