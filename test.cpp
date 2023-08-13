@@ -65,12 +65,19 @@ int deep_tree(Node *tree) {
     return tree->deep;
 }
 
-void display_node(Node *node) {
+void display_node(Node *node, int indent = 0) {
+    if (node == nullptr) {
+        return;
+    }
 
-}
+    // Display the node's value within proper formatting
+    cout << string(indent, ' ') << "         ---" << endl;
+    cout << string(indent, ' ') << "Niveau " << indent/10 + 1 << " |" << node->value << "|" << endl;
+    cout << string(indent, ' ') << "         ---" << endl;
 
-void display_binary_tree(Node *my_tree) {
-
+    // Recursively display left and right subtrees
+    display_node(node->left_tree, indent + 10);
+    display_node(node->right_tree, indent + 10);
 }
 
 
@@ -87,6 +94,8 @@ int main() {
     my_tree = insert(my_tree, 7);
     my_tree = insert(my_tree, 13);
     my_tree = insert(my_tree, 22);
+
+    display_node(my_tree);
 
     //cout << deep_tree(my_tree);
 
