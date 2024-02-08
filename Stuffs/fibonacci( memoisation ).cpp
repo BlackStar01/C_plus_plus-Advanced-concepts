@@ -7,7 +7,6 @@ vector<int> memo;
 
 int fibonacci(const int n)
 {
-
     // Si fibo pour n est déjà calculé, retournez-le
     if (memo[n] != -1)
     {
